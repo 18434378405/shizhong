@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时钟</title>
+</head>
+<style>
+	.box{
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		border: 1px solid #000;
+		margin: 0 auto;
+		position: relative;
+	}
+	.h{
+		width: 5px;
+		height: 60px;
+		background: red;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 100px;
+		margin:-60px auto 0;
+		z-index: 15;
+		transform-origin: bottom;
+	}
+	.m{
+		width: 5px;
+		height: 70px;
+		background: green;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 100px;
+		margin:-70px auto 0;
+		z-index: 10;
+		transform-origin: bottom;
+	}
+	.s{
+		width: 5px;
+		height: 80px;
+		background: pink;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 100px;
+		margin:-80px auto 0;
+		z-index: 5;
+		transform-origin: bottom;
+	}
+</style>
+<body>
+	<div class="box">
+		<div class="h"></div>
+		<div class="m"></div>
+		<div class="s"></div>
+	</div>
+</body>
+</html>
+<script>
+	let h=document.querySelector(".h")
+	let m=document.querySelector(".m")
+	let s=document.querySelector(".s")
+	function settime(){
+	let now=new Date()
+	h1=now.getHours();
+	m1=now.getMinutes();
+	s1=now.getSeconds();
+	h.style.transform=`rotate(${30*h1}deg)`
+	m.style.transform=`rotate(${6*m1}deg)`
+	s.style.transform=`rotate(${6*s1}deg)`
+	}
+	settime()
+	setInterval(settime,1000)
+</script>
